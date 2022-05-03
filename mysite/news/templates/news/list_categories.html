@@ -1,0 +1,15 @@
+<div class="list-group">
+    {% for item in categories %}
+<!--    <li class="list-group-item d-flex justify-content-between align-items-center">-->
+<!--&lt;!&ndash;    <a href="{% url 'category' item.pk %}" class="list-group-item list-group-item-action"> {{ item.title }} </a>&ndash;&gt;-->
+<!--    <a href="{{ item.get_absolute_url }}" class="list-group-item list-group-item-action"> {{ item.title }} </a>-->
+<!--    <span class="badge bg-primary rounded-pill">{{ item.cnt }}</span>-->
+<!--    </li>-->
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+<!--    <a href="{% url 'category' item.pk %}" class="list-group-item list-group-item-action"> {{ item.title }} </a>-->
+    <a href="{{ item.get_absolute_url }}" class="list-group-item list-group-item-action"> {{ item.title }} </a>
+    <span class="badge bg-primary rounded-pill">{{ item.cnt }}</span>
+    </li>
+    {% endfor %}
+</div>

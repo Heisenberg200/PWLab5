@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+<!--{% load static %}-->
+
+{% block title %}
+ Добавление новости :: {{ block.super }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+    <h1>Добавление новости</h1>
+<form action="{% url 'add_news' %}" method="post">
+    {% csrf_token %}
+
+<!--    автоматический способ-->
+    {{ form.as_p }}
+
+<!--    полуавтоматический способ-->
+    {% comment %}
+    {% for field in form %}
+    <p>
+    <div class="form-group">
+        {{ field.label_tag }}
+        {{ field }}
+        <div class="invalid-feedback">
+            {{ field.errors }}
+        </div>
+    </div>
+    </p>
+    {% endfor %}
+    {% endcomment %}
+
+    <div class="d-grid gap-2">
+<!--        <button type="submit" class="btn btn-primary btn-block">Добавить новость</button>-->
+<!--        btn-block не используетс в версии 5-->
+        <button type="submit" class="btn btn-primary col-6 mx-auto">Добавить новость</button>
+    </div>
+</form>
+{% endblock %}
+
+
